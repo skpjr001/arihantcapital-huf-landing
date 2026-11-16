@@ -40,7 +40,7 @@ export default function Footer() {
                           aria-label={s.label}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="grid size-8 place-items-center rounded-full border-2 border-brand text-brand-text transition-colors hover:bg-cta hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+                          className="grid size-9 place-items-center rounded-full border-2 border-brand text-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
                         >
                           <SocialIcon name={s.name} />
                         </a>

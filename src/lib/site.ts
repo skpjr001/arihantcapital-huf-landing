@@ -7,7 +7,7 @@ export const PRIVACY_HREF = "https://www.arihantcapital.com/privacyandsecurity";
 export const SUPPORT_HREF = "https://support.arihantcapital.com/support/home"; // support page URL
 export const BLOGS_HREF = "https://www.arihantplus.com/blogs"; // blog listing URL
 export const YOUTUBE_HREF = "https://www.youtube.com/@arihant_plus"; // Arihant's channel URL
-export const VIDEO_HREF = "https://www.youtube.com/watch?v=7KVdASoLPAs"; // "How to open HUF demat account" video
+export const VIDEO_HREF = "https://youtu.be/tfHBbSA_F_s"; // "How to open HUF demat account" video
 
 export const highlights = ["Tax Advantages", "Trusted Since 1992", "100% Digital", "Dedicated Support"];
 
@@ -125,8 +125,7 @@ export const testimonials: Testimonial[] = [
 
 // TODO: replace with real blog posts
 export const blogPosts = [
-  { title: "Lorem ipsum dolor sit amet consectetur", readTime: "5 min read", href: "#" },
-  { title: "Felis nulla nulla eget tincidunt enim in volutpa dolor lectus eget", readTime: "5 min read", href: "#" },
+  { title: "How do I open a HUF demat and trading account online with ArihantPlus?", readTime: "3 minutes read", href: "https://support.arihantplus.com/support/solutions/articles/33000316346-how-do-i-open-a-huf-demat-and-trading-account-online-with-arihantplus-" },
 ];
 
 type FAQAnswer =

@@ -104,7 +104,7 @@ function Badge({
   const img = <Image src={icon.src} width={28} height={28} alt="" className="size-6 lg:size-7" />;
   return (
     <p
-      className={`absolute flex h-[26px] items-center gap-2 whitespace-nowrap rounded-lg border border-solid [border-image-source:linear-gradient(270deg,rgba(52,179,80,0)_0%,#B5F700_71.16%)] [border-image-slice:1] shadow-[3px_3px_9px_0px_rgba(0,0,0,0.4)] bg-[linear-gradient(90deg,#FFF9A4_0%,#FFFFBF_100%)] px-[10px] text-[9px] font-semibold text-ink lg:h-[34px] lg:px-3 lg:text-xs ${className}`}
+      className={`absolute flex h-[26px] items-center gap-2 whitespace-nowrap rounded-lg border border-solid border-transparent shadow-[3px_3px_9px_0px_rgba(0,0,0,0.4)] [background:linear-gradient(90deg,#FFF9A4_0%,#FFFFBF_100%)_padding-box,linear-gradient(270deg,rgba(52,179,80,0)_0%,#B5F700_71.16%)_border-box] px-[10px] text-[9px] font-semibold text-ink lg:h-[34px] lg:px-3 lg:text-xs ${className}`}
     >
       {iconFirst && img}
       {children}

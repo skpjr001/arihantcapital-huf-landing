@@ -11,8 +11,7 @@ export default function HowToOpen() {
         <div className="contents lg:block">
           <div>
             <SectionHeading id="how-to-heading">How to open HUF Demat Account</SectionHeading>
-            {/* TODO: replace placeholder copy from the design */}
-            <p className="mt-2 text-sm lg:mt-3 lg:text-xl text-ink">Lorem ipsum dolor sit amet consectetur.</p>
+            {/* <p className="mt-2 text-sm lg:mt-3 lg:text-xl text-ink">Lorem ipsum dolor sit amet consectetur.</p> */}
           </div>
 
           <div className="max-lg:order-3">

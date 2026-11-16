@@ -11,6 +11,7 @@ import Testimonials from "@/components/Testimonials";
 import WhosWho from "@/components/WhosWho";
 import WhyArihant from "@/components/WhyArihant";
 import WhyFamilies from "@/components/WhyFamilies";
+import GreenStrip from "@/components/GreenStrip";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <main id="main" tabIndex={-1} className="overflow-x-clip focus:outline-none">
         <Hero />
+        <GreenStrip />
         <WhyFamilies />
         <Steps />
         <WhyArihant />

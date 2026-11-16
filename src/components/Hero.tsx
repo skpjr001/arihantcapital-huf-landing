@@ -1,17 +1,12 @@
 import Image from "next/image";
 import { assets } from "@/lib/assets";
-import { highlights } from "@/lib/site";
 import KycForm from "./KycForm";
 
-/**
- * Desktop: hero + highlights strip together fill exactly one viewport (below the
- * 60px navbar), so the green strip sits at the bottom of the screen before scrolling.
- */
 export default function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative flex flex-col overflow-hidden lg:h-[calc(100dvh-60px)]"
+      className="relative flex flex-col overflow-hidden lg:min-h-[calc(100vh-124px)]"
     >
       <div className="flex min-h-0 flex-1 flex-col bg-[linear-gradient(237.68deg,#FFFFFF_55.29%,#FCFFED_83.37%)]">
 
@@ -36,7 +31,7 @@ export default function Hero() {
 
         <div className="container-page relative grid flex-1 grid-cols-[minmax(0,1fr)] gap-8 pt-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-6 lg:pt-8 short:pt-6">
           {/* Copy + form */}
-          <div className="lg:max-w-[560px] lg:self-center lg:pb-[48px] short:pb-6">
+          <div className="lg:max-w-[560px] lg:self-center lg:pb-[74px] short:pb-[74px]">
             <h1
               id="hero-heading"
               className="text-[40px] font-medium leading-[42px] tracking-[-0.02em] text-ink lg:text-[64px] lg:leading-[68px] lg:tracking-[-0.025em] short:text-[48px] short:leading-[54px]"
@@ -82,25 +77,6 @@ export default function Hero() {
             />
           </div>
         </div>
-      </div>
-
-      {/* Highlights strip */}
-      <div className="relative z-10 hidden lg:block bg-[linear-gradient(360deg,rgba(3,81,20,0.06)_0%,rgba(3,81,20,0.1)_100%)]">
-        <ul className="container-page grid grid-cols-2 lg:h-16 lg:grid-cols-4">
-          {highlights.map((item, i) => (
-            <li
-              key={item}
-              className={`relative flex items-center justify-center py-4 text-center text-xl font-semibold text-leaf lg:py-0 lg:text-xl ${["lg:justify-start", "lg:justify-center", "lg:justify-center", "lg:justify-end"][i]
-                } ${i % 2 === 1 ? "max-lg:border-l max-lg:border-forest/15" : ""} ${i >= 2 ? "max-lg:border-t max-lg:border-forest/15" : ""
-                } ${i > 0
-                  ? "lg:before:absolute lg:before:inset-y-3 lg:before:left-0 lg:before:w-px lg:before:bg-[linear-gradient(to_bottom,transparent,rgb(67_67_67/0.3),transparent)] lg:before:content-['']"
-                  : ""
-                }`}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

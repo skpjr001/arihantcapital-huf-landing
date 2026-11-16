@@ -65,7 +65,7 @@ export default function Testimonials() {
   };
 
   const navBtn =
-    "grid size-10 place-items-center rounded-lg text-white transition-colors enabled:bg-ink enabled:hover:bg-black disabled:cursor-not-allowed disabled:bg-ink/30";
+    "grid size-10 place-items-center rounded-lg text-white transition-colors enabled:bg-black disabled:cursor-not-allowed disabled:bg-ink/30";
 
   return (
     <section
@@ -119,10 +119,10 @@ export default function Testimonials() {
 
         <div className="mt-10 flex justify-center gap-3">
           <button type="button" className={navBtn} onClick={() => scrollByCard(-1)} disabled={!canPrev} aria-label="Previous review">
-            <ChevronLeft className="size-5" />
+            <ChevronLeft className="size-5 cursor-pointer" />
           </button>
           <button type="button" className={navBtn} onClick={() => scrollByCard(1)} disabled={!canNext} aria-label="Next review">
-            <ChevronRight className="size-5" />
+            <ChevronRight className="size-5 cursor-pointer" />
           </button>
         </div>
       </div>

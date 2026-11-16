@@ -16,7 +16,7 @@ export default function Faq() {
             <SectionHeading id="faq-heading" className="text-ink">FAQs</SectionHeading>
             <p className="text-sm lg:text-xl">Explore the questions that families usually ask</p>
           </div>
-          <p className="max-lg:order-3 mt-10 lg:mt-0">
+          <p className="lg:block hidden mt-10 lg:mt-0">
             <ArrowLink href={SUPPORT_HREF}>Support</ArrowLink>
           </p>
         </div>
@@ -73,6 +73,10 @@ export default function Faq() {
             );
           })}
         </div>
+
+        <p className="block lg:hidden">
+          <ArrowLink href={SUPPORT_HREF}>Support</ArrowLink>
+        </p>
       </div>
     </section>
   );

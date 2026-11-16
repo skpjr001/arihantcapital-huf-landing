@@ -12,7 +12,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Open HUF Demat Account Online | Arihant Capital",
+  title: "Arihant Capital - Open HUF Demat Account Online",
   description:
     "Open your HUF demat account and invest in stocks, mutual funds, IPO, futures & options and NCDs as a separate legal entity for tax purposes.",
 };

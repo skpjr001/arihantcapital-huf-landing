@@ -7,7 +7,7 @@ const JoinCommunity = () => {
     <section className="container-page mb-20 lg:mb-[120px]">
       <div className="relative overflow-hidden rounded-[24px] lg:flex lg:items-center lg:justify-between px-6 py-10 lg:px-16 lg:py-16">
         <div
-          className="absolute inset-0 z-0 bg-[linear-gradient(0deg,#000000,#000000),radial-gradient(68.36%_50%_at_64.87%_0%,rgba(247,146,0,0.24)_0%,rgba(247,146,0,0)_100%)]"
+          className="absolute inset-0 z-0 bg-black bg-[radial-gradient(68.36%_50%_at_40%_0%,rgba(247,146,0,0.24)_0%,rgba(247,146,0,0)_100%)]"
         />
 
         <div className="relative z-10 lg:w-[55%]">
