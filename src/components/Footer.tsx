@@ -32,7 +32,7 @@ export default function Footer() {
                   ))}
                 </ul>
                 {col.title === "Connect With Us" && (
-                  <ul className="mt-[22px] flex gap-2 lg:mt-[13px]" aria-label="Social media">
+                  <ul className="mt-[22px] flex gap-2 lg:mt-[13px] flex-wrap" aria-label="Social media">
                     {socialLinks.map((s) => (
                       <li key={s.name}>
                         <a
