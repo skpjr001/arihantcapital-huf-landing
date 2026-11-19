@@ -4,10 +4,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { assets } from "@/lib/assets";
 import { OPEN_ACCOUNT_HREF } from "@/lib/site";
+import { usePathname } from "next/navigation";
 
 /** Sticky top bar: 48px tall on mobile, 60px on desktop. */
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const algoPage = pathname.includes("/algo-trading")
 
   // Close the mobile menu on Escape or when resizing up to desktop.
   useEffect(() => {
@@ -48,7 +51,7 @@ export default function Navbar() {
             href={OPEN_ACCOUNT_HREF}
             className="inline-flex h-10 items-center rounded-full bg-cta px-6 text-base font-medium text-white transition-colors hover:bg-cta-hover"
           >
-            Open HUF Account
+            {algoPage ? "Open Demat" : "Open HUF Account"}
           </a>
         </div>
 
