@@ -50,7 +50,7 @@ export default function KycForm({ variant, id }: { variant: Variant; id?: string
     setError(null);
     setLoading(true);
     try {
-      const res = await fetch("/api/ekyc", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/api/ekyc`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
