@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
-const BASE_PATH = process.env.BASE_PATH || '';
+// basePath is baked in at build time (including output: "standalone" — server.js
+// never re-reads this file). .env is gitignored, so CI/UAT builds don't see it;
+// fall back to the UAT prefix. Set BASE_PATH="" explicitly to serve from root.
+const BASE_PATH = process.env.BASE_PATH ?? "/huf_uat";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
