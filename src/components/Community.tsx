@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { assets } from '@/lib/assets'
 
 const JoinCommunity = () => {
   return (
@@ -36,7 +37,7 @@ const JoinCommunity = () => {
         <div className="relative z-10 hidden lg:block lg:w-[35%] mt-10 lg:mt-0">
           <div className="relative w-full aspect-[1222/640]">
             <Image
-              src="/images/Join-comminity-img.png"
+              src={assets.joinCommunity.src}
               alt="ArihantPlus community members"
               fill
               sizes="362px"

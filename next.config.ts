@@ -1,8 +1,15 @@
 import type { NextConfig } from "next";
 
+const basePath = "/huf_uat";
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  basePath,
+  // next/image does not prefix basePath onto string `src`s — expose it so
+  // src/lib/assets.ts can do it (see node_modules/next/dist/docs basePath.md).
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
+  distDir: "dist",
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [75],
