@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-[0_1px_4px_rgb(0_0_0/0.08)]">
       <nav aria-label="Main" className="container-page flex h-12 items-center justify-between lg:h-[60px]">
-        <a href="#" aria-label="Arihant Capital – home" className="shrink-0">
+        <div className="shrink-0">
           <Image
             src={assets.logo.src}
             width={assets.logo.width}
@@ -40,7 +40,7 @@ export default function Navbar() {
             preload
             className="h-6 w-auto lg:h-[30px]"
           />
-        </a>
+        </div>
 
         {/* Desktop actions */}
         <div className="hidden items-center gap-8 lg:flex">
