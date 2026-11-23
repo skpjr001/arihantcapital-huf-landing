@@ -23,14 +23,17 @@ export default function AlgoLeadForm() {
   const [values, setValues] = useState<Record<Field, string>>({ name: "", phone: "", email: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   const set = (f: Field, val: string) => {
     setValues((v) => ({ ...v, [f]: val }));
     if (errors[f]) setErrors((e) => ({ ...e, [f]: undefined }));
   };
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (loading) return;
     const errs = validate(values);
     setErrors(errs);
     const first = (Object.keys(errs) as Field[])[0];
@@ -38,8 +41,30 @@ export default function AlgoLeadForm() {
       (e.currentTarget.elements.namedItem(first) as HTMLInputElement | null)?.focus();
       return;
     }
-    // TODO: wire to the lead-capture API once it is available.
-    setDone(true);
+    setFormError(null);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/webinar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          values: { name: values.name.trim(), mobile_number: values.phone, email: values.email.trim() },
+          dynamicParams: Object.fromEntries(new URLSearchParams(window.location.search)),
+        }),
+      });
+      const data: { message?: string; error?: string } = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setFormError(data.error ?? "Could not complete your registration. Please try again.");
+        return;
+      }
+
+      setDone(true);
+    } catch {
+      setFormError("Something went wrong. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   const inputCls = (f: Field) =>
@@ -48,8 +73,20 @@ export default function AlgoLeadForm() {
   const labelCls = "mb-2 block text-base font-semibold text-[#000000]";
   const errCls = "mt-1.5 text-xs font-semibold text-red-700";
 
+  const cardCls =
+    "w-full lg:max-w-[572px] rounded-3xl bg-white p-[26px] shadow-[0_4px_18px_rgb(0_0_0/0.12)] lg:border lg:border-[#D3D2D2] lg:p-9 lg:shadow-[0_4px_14px_rgb(0_0_0/0.08)]";
+
+  if (done) {
+    return (
+      <div className={cardCls} role="status">
+        <p className="text-xl font-semibold text-[#000000]">Thank you for registering!</p>
+        <p className="mt-2 text-base text-ink">Our team will get in touch with you shortly.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full lg:max-w-[572px] rounded-3xl bg-white p-[26px] shadow-[0_4px_18px_rgb(0_0_0/0.12)] lg:border lg:border-[#D3D2D2] lg:p-9 lg:shadow-[0_4px_14px_rgb(0_0_0/0.08)]">
+    <div className={cardCls}>
       <form noValidate onSubmit={onSubmit}>
         <div>
           <label htmlFor={`${uid}-name`} className={labelCls}>
@@ -110,11 +147,19 @@ export default function AlgoLeadForm() {
           {errors.email && <p id={`${uid}-email-err`} className={errCls}>{errors.email}</p>}
         </div>
 
+        {formError && (
+          <p role="alert" className="mt-4 text-sm font-semibold text-red-700">
+            {formError}
+          </p>
+        )}
+
         <button
           type="submit"
-          className="mt-5 h-[50px] w-full cursor-pointer rounded-[10px] bg-cta text-base font-medium text-white"
+          disabled={loading}
+          aria-busy={loading || undefined}
+          className="mt-5 h-[50px] w-full cursor-pointer rounded-[10px] bg-cta text-base font-medium text-white disabled:cursor-wait disabled:opacity-70"
         >
-          Explore
+          {loading ? "Please wait…" : "Explore"}
         </button>
       </form>
     </div>

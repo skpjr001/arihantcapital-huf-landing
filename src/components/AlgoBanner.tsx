@@ -1,7 +1,7 @@
 import AlgoLeadForm from "./algo/AlgoLeadForm";
 
 const stats = [
-    { value: "33+", label: "Years in financial markets" },
+    { value: "34+", label: "Years in financial markets" },
     { value: "10k+", label: "Total Clients" },
 ];
 
