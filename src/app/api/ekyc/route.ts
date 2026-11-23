@@ -25,7 +25,7 @@ export async function POST(req: Request) {
         isConsentsubmited: true,
         login_type: "Mobile_OTP",
         portal: "Arihant_plus",
-        portal_url: "",
+        portal_url: "https://www.arihantcapital.com/HUFLandingPage",
         bitrix_fields: {
             utm_source: UTM_SOURCE,
             utm_medium: UTM_MEDIUM,
