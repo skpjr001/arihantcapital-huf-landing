@@ -11,20 +11,21 @@ export async function POST(req: Request) {
     const mobile = result?.mobile || ''
     const params = result?.dynamicParams || {}
 
-    const UTM_SOURCE = params?.utm_source || 'source'
-    const UTM_MEDIUM = params?.utm_medium || 'medium'
-    const UTM_CAMPAIGN = params?.utm_campaign || 'campaign'
-    const UTM_TERM = params?.utm_term || 'term'
-    const UTM_CONTENT = params?.utm_content || 'content'
-    const UTM_CODE = params?.utm_code || 'code'
-    const UTM_AGENCY = params?.utm_agency || 'agency'
+    //if null then pass empty string
+    const UTM_SOURCE = params?.utm_source || ''
+    const UTM_MEDIUM = params?.utm_medium || ''
+    const UTM_CAMPAIGN = params?.utm_campaign || ''
+    const UTM_TERM = params?.utm_term || ''
+    const UTM_CONTENT = params?.utm_content || ''
+    const UTM_CODE = params?.utm_code || ''
+    const UTM_AGENCY = params?.utm_agency || ''
 
     const boBody = {
         mobile_number: mobile,
         Account_Type: "HUF_Acc",
         isConsentsubmited: true,
         login_type: "Mobile_OTP",
-        portal: "Arihant_plus",
+        portal: "Arihant_Capital",
         portal_url: "https://www.arihantcapital.com/HUFLandingPage",
         bitrix_fields: {
             utm_source: UTM_SOURCE,
@@ -35,9 +36,9 @@ export async function POST(req: Request) {
             utm_code: UTM_CODE,
             utm_agency: UTM_AGENCY,
             ...params,
-            main_Source: "1207",
-            sub_source: "1241",
-            source: "UC_JVI0U0",
+            // main_Source: "1207",
+            // sub_source: "1241",
+            // source: "UC_JVI0U0",
         },
     };
 

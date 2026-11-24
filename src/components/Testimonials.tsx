@@ -80,14 +80,14 @@ export default function Testimonials() {
           ref={listRef}
           tabIndex={0}
           aria-label="Client reviews"
-          className="no-scrollbar relative -mx-[30px] mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-px-[30px] px-[30px] pb-2 lg:mx-0 lg:mt-[38px] lg:gap-[25px] lg:scroll-px-0 lg:px-0"
+          className="no-scrollbar relative -mx-[30px] mt-10 flex snap-x snap-mandatory gap-[30px] overflow-x-auto scroll-px-[30px] px-[30px] pb-2 lg:mx-0 lg:mt-[38px] lg:gap-[25px] lg:scroll-px-0 lg:px-0"
         >
           {testimonials.map((t, i) => (
             <li
               key={t.id}
               aria-roledescription="slide"
               aria-label={`${i + 1} of ${testimonials.length}`}
-              className="flex w-[240px] shrink-0 snap-start flex-col rounded-2xl border border-ink/15 bg-white px-6 pb-6 pt-6 text-center lg:w-[calc((100%-50px)/3)] lg:px-[35px] lg:pt-[35px]"
+              className="flex w-full shrink-0 snap-start flex-col rounded-2xl border border-ink/15 bg-white px-6 pb-6 pt-6 text-center lg:w-[calc((100%-50px)/3)] lg:px-[35px] lg:pt-[35px]"
             >
               {/* <p className="flex justify-center gap-2 lg:gap-4">
                 <span className="sr-only">Rated 5 out of 5</span>

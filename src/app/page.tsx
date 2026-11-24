@@ -13,7 +13,7 @@ import WhyArihant from "@/components/WhyArihant";
 import WhyFamilies from "@/components/WhyFamilies";
 import GreenStrip from "@/components/GreenStrip";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <Navbar />

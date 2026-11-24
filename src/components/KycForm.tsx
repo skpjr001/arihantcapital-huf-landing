@@ -65,7 +65,7 @@ export default function KycForm({ variant, id }: { variant: Variant; id?: string
         return;
       }
 
-      const target = `${data.url}?params=${data.result}`;
+      const target = `${data.url}${data.result}`;
       // Opened after an await, so popup blockers may stop it — fall back to same tab.
       const win = window.open(target, "_blank");
       if (win) win.opener = null;
